@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+    --color-navbar: #4A4E69;
+    --color-navbar-text: #F2E9E4;
+    --color-heading-hr: #C9ADA7;
+    --font-sans: 'Inter', sans-serif;
+}
