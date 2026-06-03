@@ -1,5 +1,5 @@
 @import "tailwindcss";
-
+@plugin "daisyui";
 @theme {
     --color-navbar: #4A4E69;
     --color-navbar-text: #F2E9E4;
