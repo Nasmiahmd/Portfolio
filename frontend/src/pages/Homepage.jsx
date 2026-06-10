@@ -28,7 +28,7 @@ const Homepage = () => {
           <div className="text-center xl:text-left ps-0 xl:ps-56">
             <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-100 hover:animate-bounce transition-shadow duration-75">Software</h2>
             <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-100 hover:animate-pulse transition-shadow duration-75">Engineer</h2>
-            <p className="text-base sm:text-xl text-slate-600 hover:text-slate-200 max-w-2xl mx-auto py-6 text-wrap">
+            <p className="text-base sm:text-xl text-slate-300 hover:text-slate-800 max-w-2xl mx-auto py-6 text-wrap">
               I'm a Software Engineer based in Sri Lanka, I'll Help you through my knowledge.
             </p>
           </div>

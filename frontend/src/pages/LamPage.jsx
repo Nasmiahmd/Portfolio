@@ -1,8 +1,11 @@
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const LamPage = () => {
   return (
-    <div>LamPage</div>
+    <>
+      <Navbar />
+    </>
   )
 }
 
