@@ -6,7 +6,6 @@ import { TypeAnimation } from "react-type-animation";
 const Homepage = () => {
   return (
     <>
-      <Navbar />
       <div>
         <h1 className="text-center pt-7 text-xl sm:text-2xl md:text-4xl font-bold italic">
           <TypeAnimation
@@ -27,8 +26,8 @@ const Homepage = () => {
         <div className="mt-12 xl:mt-28 flex flex-col-reverse xl:flex-row max-w-full mx-auto items-center xl:justify-between px-6 xl:px-0 gap-8 xl:gap-0">
           <div className="text-center xl:text-left ps-0 xl:ps-56">
             <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-100 hover:animate-bounce transition-shadow duration-75">Software</h2>
-            <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-100 hover:animate-pulse transition-shadow duration-75">Engineer</h2>
-            <p className="text-base sm:text-xl text-slate-300 hover:text-slate-800 max-w-2xl mx-auto py-6 text-wrap">
+            <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-300 hover:animate-pulse transition-shadow duration-75">Engineer</h2>
+            <p className="text-base sm:text-xl text-gray-600 hover:text-white max-w-2xl mx-auto py-6 text-wrap">
               I'm a Software Engineer based in Sri Lanka, I'll Help you through my knowledge.
             </p>
           </div>
