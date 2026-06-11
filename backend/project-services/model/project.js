@@ -2,23 +2,23 @@ import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema({
     githubLink:{
-        type: string,
+        type: String,
         required: true
     },
     imageUrl:{
-        type: string,
+        type: String,
         required: true
     },
     name:{
-        type: string,
+        type: String,
         required: true
     },
     description:{
-        type: string,
+        type: String,
         required: true
     }
 });
 
-const Project = mongoose.model("Note", noteSchema);
+const Project = mongoose.model("Project", projectSchema);
 
 export default Project;

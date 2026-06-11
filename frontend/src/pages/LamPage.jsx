@@ -1,25 +1,31 @@
 import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
-
+import toast from "react-hot-toast"
 const LamPage = () => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    message: ''
-  })
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    // Add your form submission logic here
-  }
+    formData.append("access_key", "3764efb3-a774-4c0f-80ef-e429f58a4b24");
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: json
+    }).then((res) => res.json());
+
+    if (res.success) {
+      console.log("Success", res);
+      toast.success("Successfully Sent!")
+    }
+  };
+  
   return (
     <div className='flex justify-center items-center' style={{ minHeight: 'calc(100vh - 68px)' }}>
       <div className='
@@ -47,7 +53,7 @@ const LamPage = () => {
           Contact Form
         </h1>
         
-        <form onSubmit={handleSubmit} className='p-4 sm:p-3 md:p-4 lg:p-6'>
+        <form onSubmit={onSubmit} className='p-4 sm:p-3 md:p-4 lg:p-6'>
           {/* Full Name */}
           <div className='mb-3'>
             <label className='block text-sm sm:text-xs md:text-sm font-medium text-gray-700 mb-1'>
@@ -68,10 +74,8 @@ const LamPage = () => {
                 text-sm
               ' 
               type="text" 
-              name="fullName"
+              name="name"
               placeholder='Enter your name'
-              value={formData.fullName}
-              onChange={handleChange}
               required 
             />
           </div>
@@ -98,8 +102,6 @@ const LamPage = () => {
               type="email" 
               name="email"
               placeholder='Enter your email'
-              value={formData.email}
-              onChange={handleChange}
               required 
             />
           </div>
@@ -121,16 +123,14 @@ const LamPage = () => {
                 focus:border-transparent
                 resize-y
                 text-sm
-                min-h-[80px]
-                sm:min-h-[70px]
-                md:min-h-[100px]
-                lg:min-h-[120px]
+                min-h-20
+                sm:min-h-17.5
+                md:min-h-25
+                lg:min-h-30
               ' 
               name="message"
               placeholder='Enter your message'
               rows="4"
-              value={formData.message}
-              onChange={handleChange}
               required
             />
           </div>

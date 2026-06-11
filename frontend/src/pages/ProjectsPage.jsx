@@ -1,7 +1,28 @@
 import React from 'react'
 import Card from '../components/Card'
+import { useState } from 'react'
+import { useEffect } from 'react';
+import api from '../lib/axios';
+
+
 
 const ProjectsPage = () => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    const fetchProjects = async() => {
+      try {
+        const res = await api.get("/");
+        console.log(res.data);
+        setProjects(res.data);
+      } catch (error) {
+        console.log(error.message);
+      }
+    }
+    fetchProjects();
+  }, [])
+
   return (
     <div 
       className='min-h-screen py-6 sm:py-8 md:py-10 lg:py-12'
@@ -44,6 +65,7 @@ const ProjectsPage = () => {
       </div>
 
       {/* Projects Grid */}
+      {projects.length > 0 && (
       <div className='
         px-3 sm:px-4 md:px-6 lg:px-8
         mx-auto
@@ -62,14 +84,12 @@ const ProjectsPage = () => {
           justify-items-center
           items-stretch
         '>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {projects.map((project) => (
+            <Card key={project._id} project={project} setProjects={setProjects}/>
+          ))}
         </div>
       </div>
+      )}
     </div>
   )
 }

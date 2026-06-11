@@ -12,7 +12,19 @@ const AboutPage = () => {
       style={{ minHeight: "calc(100vh - 68px)" }}
     >
       {/* Image Section */}
-      <div className="flex justify-center w-full lg:w-auto">
+      <div className="flex justify-center lg:w-auto w-full 
+            sm:w-11/12 
+            md:w-3/4 
+            leading-relaxed
+            transition-colors
+            duration-300
+            shadow-lg
+            p-4
+            sm:p-5
+            md:p-6
+            rounded-lg
+            bg-gray-800/30
+            backdrop-blur-sm">
         <img 
           className="
             w-48 h-48 
@@ -87,7 +99,7 @@ const AboutPage = () => {
           mt-4 sm:mt-5 md:mt-6
         ">
           <a 
-            href="#" 
+            href="https://www.linkedin.com/in/ahamed-nasmi-23978429b/" 
             className="
               text-gray-400 
               hover:text-blue-500 
@@ -102,7 +114,7 @@ const AboutPage = () => {
             <CiLinkedin />
           </a>
           <a 
-            href="#" 
+            href="https://github.com/Nasmiahmd" 
             className="
               text-gray-400 
               hover:text-gray-300 
@@ -117,7 +129,7 @@ const AboutPage = () => {
             <FaGithub />
           </a>
           <a 
-            href="#" 
+            href="https://web.facebook.com/ahmed.nasmi.737/" 
             className="
               text-gray-400 
               hover:text-blue-600 
@@ -132,7 +144,7 @@ const AboutPage = () => {
             <FaFacebook />
           </a>
           <a 
-            href="#" 
+            href="https://www.instagram.com/nasmi_ahmd/" 
             className="
               text-gray-400 
               hover:text-pink-500 

@@ -1,8 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const Card = ({ title = "Project Title", description = "Project description goes here", image, techStack = [] }) => {
+const Card = ({ project, setProjects }) => {
+  // Function to handle GitHub link click
+  const handleViewProject = () => {
+    if (project.githubLink) {
+      window.open(project.githubLink, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
-    <div className='
+    <div
+      className="
       bg-gray-800 
       rounded-xl 
       overflow-hidden 
@@ -25,25 +33,27 @@ const Card = ({ title = "Project Title", description = "Project description goes
       flex
       flex-col
       relative
-    '>
+    "
+    >
       {/* Image Section with Zoom */}
-      <div className='h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden bg-gray-700 relative'>
-        {image ? (
-          <img 
-            className='w-full h-full object-cover transition-all duration-500 hover:scale-125' 
-            src={image} 
-            alt={title} 
+      <div className="h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden bg-gray-700 relative">
+        {project.imageUrl ? (
+          <img
+            className="w-full h-full object-cover transition-all duration-500 hover:scale-125"
+            src={project.imageUrl}
+            alt={project.name}
           />
         ) : (
-          <div className='w-full h-full flex items-center justify-center text-gray-500'>
-            Project Image
+          <div className="w-full h-full flex items-center justify-center text-gray-500">
+            No Image Available
           </div>
         )}
       </div>
-      
+
       {/* Content Section */}
-      <div className='p-4 sm:p-5 flex-1 flex flex-col transition-all duration-300 group-hover:bg-gray-700'>
-        <h3 className='
+      <div className="p-4 sm:p-5 flex-1 flex flex-col transition-all duration-300 group-hover:bg-gray-700">
+        <h3
+          className="
           text-lg 
           sm:text-xl 
           md:text-2xl 
@@ -54,11 +64,13 @@ const Card = ({ title = "Project Title", description = "Project description goes
           transition-all
           duration-300
           group-hover:text-blue-400
-        '>
-          {title}
+        "
+        >
+          {project.name}
         </h3>
-        
-        <p className='
+
+        <p
+          className="
           text-gray-400 
           text-sm 
           sm:text-base 
@@ -68,17 +80,18 @@ const Card = ({ title = "Project Title", description = "Project description goes
           transition-all
           duration-300
           group-hover:text-gray-300
-        '>
-          {description}
+        "
+        >
+          {project.description}
         </p>
-        
-        {/* Tech Stack Tags */}
-        {techStack.length > 0 && (
-          <div className='flex flex-wrap gap-2 mb-4'>
-            {techStack.map((tech, index) => (
-              <span 
+
+        {/* Tech Stack Tags - Optional but nice to have */}
+        {project.techStack && project.techStack.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.techStack.map((tech, index) => (
+              <span
                 key={index}
-                className='
+                className="
                   text-xs 
                   sm:text-sm 
                   bg-blue-600/20 
@@ -86,20 +99,17 @@ const Card = ({ title = "Project Title", description = "Project description goes
                   px-2 
                   py-1 
                   rounded-full
-                  transition-all
-                  duration-300
-                  group-hover:bg-blue-600/40
-                  group-hover:text-blue-300
-                '
+                "
               >
                 {tech}
               </span>
             ))}
           </div>
         )}
-        
+
         {/* Button with Pop Effect */}
-        <button className='
+        <button
+          className="
           w-full 
           bg-blue-600 
           text-white 
@@ -113,12 +123,14 @@ const Card = ({ title = "Project Title", description = "Project description goes
           hover:bg-blue-700 
           hover:scale-105
           active:scale-95
-        '>
+        "
+          onClick={handleViewProject}
+        >
           View Project →
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
