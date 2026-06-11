@@ -1,56 +1,124 @@
-import React from "react";
+import React from 'react'
 
-const Card = () => {
+const Card = ({ title = "Project Title", description = "Project description goes here", image, techStack = [] }) => {
   return (
-    <>
-      <div className="overflow-hidden">
-        {/* Background Glow */}
-        <div
-          className="
-          absolute
-          left-1/2
-          -translate-x-1/2
-          w-[90vw]
-          max-w-150
-          rounded-full
-          bg-[radial-gradient(circle,rgba(120,180,80,0.25)_0%,transparent_70%)]
-          blur-3xl
-        "
-        />
-
-        {/* Glass Card */}
-        <div
-          className="
-          relative
-          w-[90vw] max-w-105
-          h-105
-          rounded-4xl
-          bg-white/10
-          backdrop-blur-xl
-          border border-white/10
-          shadow-[0_8px_40px_rgba(0,0,0,0.35)]
-          p-6
-        "
-        >
-          {/* Inner White Card */}
-          <div
-            className="
-            w-full
-            h-62.5
-            rounded-3xl
-            bg-white/90
-            border border-white/20
-          "
+    <div className='
+      bg-gray-800 
+      rounded-xl 
+      overflow-hidden 
+      shadow-lg 
+      transition-all 
+      duration-300 
+      ease-out
+      hover:shadow-2xl 
+      hover:shadow-blue-500/20
+      hover:scale-110 
+      hover:-translate-y-4
+      hover:z-20
+      hover:ring-2
+      hover:ring-blue-500/50
+      cursor-pointer
+      w-full
+      max-w-sm
+      mx-auto
+      h-full
+      flex
+      flex-col
+      relative
+    '>
+      {/* Image Section with Zoom */}
+      <div className='h-40 sm:h-44 md:h-48 lg:h-52 overflow-hidden bg-gray-700 relative'>
+        {image ? (
+          <img 
+            className='w-full h-full object-cover transition-all duration-500 hover:scale-125' 
+            src={image} 
+            alt={title} 
           />
-
-          <div className="mt-6 text-white">
-            <h2 className="text-3xl font-bold">Your Enterprise card</h2>
-            <p className="text-white/70">Powered by Wise Platform</p>
+        ) : (
+          <div className='w-full h-full flex items-center justify-center text-gray-500'>
+            Project Image
           </div>
-        </div>
+        )}
       </div>
-    </>
-  );
-};
+      
+      {/* Content Section */}
+      <div className='p-4 sm:p-5 flex-1 flex flex-col transition-all duration-300 group-hover:bg-gray-700'>
+        <h3 className='
+          text-lg 
+          sm:text-xl 
+          md:text-2xl 
+          font-bold 
+          text-white 
+          mb-2
+          line-clamp-1
+          transition-all
+          duration-300
+          group-hover:text-blue-400
+        '>
+          {title}
+        </h3>
+        
+        <p className='
+          text-gray-400 
+          text-sm 
+          sm:text-base 
+          mb-4 
+          line-clamp-3
+          flex-1
+          transition-all
+          duration-300
+          group-hover:text-gray-300
+        '>
+          {description}
+        </p>
+        
+        {/* Tech Stack Tags */}
+        {techStack.length > 0 && (
+          <div className='flex flex-wrap gap-2 mb-4'>
+            {techStack.map((tech, index) => (
+              <span 
+                key={index}
+                className='
+                  text-xs 
+                  sm:text-sm 
+                  bg-blue-600/20 
+                  text-blue-400 
+                  px-2 
+                  py-1 
+                  rounded-full
+                  transition-all
+                  duration-300
+                  group-hover:bg-blue-600/40
+                  group-hover:text-blue-300
+                '
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+        
+        {/* Button with Pop Effect */}
+        <button className='
+          w-full 
+          bg-blue-600 
+          text-white 
+          py-2 
+          rounded-lg 
+          transition-all 
+          duration-300
+          text-sm
+          sm:text-base
+          font-medium
+          hover:bg-blue-700 
+          hover:scale-105
+          active:scale-95
+        '>
+          View Project →
+        </button>
+      </div>
+    </div>
+  )
+}
 
-export default Card;
+export default Card

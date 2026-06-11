@@ -6,7 +6,7 @@ import { TypeAnimation } from "react-type-animation";
 const Homepage = () => {
   return (
     <>
-      <div>
+      <div className="min-h-screen">
         <h1 className="text-center pt-7 text-xl sm:text-2xl md:text-4xl font-bold italic">
           <TypeAnimation
             sequence={[
