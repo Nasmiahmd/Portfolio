@@ -3,6 +3,9 @@ import { connectdb } from "./config/db.js";
 import dotenv from "dotenv";
 import projectRoutes from "./routes/projectRoutes.js"
 import cors from "cors";
+import dns from "dns/promises";
+
+dns.setServers(["1.1.1.1"]);
 
 const app = express();
 

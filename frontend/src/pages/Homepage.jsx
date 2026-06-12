@@ -1,44 +1,66 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import nasmiPic from "../assets/nasmi-pic.jpg";
 import { TypeAnimation } from "react-type-animation";
-
+import nasmiPic from "../assets/nasmi-pic.jpg";
+import {Link} from "react-router";
 const Homepage = () => {
   return (
-    <>
-      <div className="min-h-screen">
-        <h1 className="text-center pt-7 text-xl sm:text-2xl md:text-4xl font-bold italic">
+    <div 
+      className="min-h-screen flex flex-col items-center justify-center"
+      style={{ minHeight: 'calc(100vh - 68px)' }}
+    >
+      {/* Typing Animation */}
+      <div className="text-center mb-8">
+        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold italic">
           <TypeAnimation
             sequence={[
-              // Same substring at the start will only be typed out once, initially
-              "Hey folks, My self Nasmi.",
-              1500, // wait 1s before replacing "Mice" with "Hamsters"
+              "Hey folks, Myself Nasmi.",
+              1500,
               "Here We are 👋.",
               1500,
             ]}
             wrapper="span"
             speed={40}
-            style={{ fontSize: "1.5em", display: "inline-block" }}
+            style={{ fontSize: "1em", display: "inline-block" }}
             repeat={Infinity}
           />
         </h1>
-        <hr className="max-w-3xs mx-auto text-heading-hr border-4 mt-0.5 rounded-2xl " />
-        <div className="mt-12 xl:mt-28 flex flex-col-reverse xl:flex-row max-w-full mx-auto items-center xl:justify-between px-6 xl:px-0 gap-8 xl:gap-0">
-          <div className="text-center xl:text-left ps-0 xl:ps-56">
-            <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-100 hover:animate-bounce transition-shadow duration-75">Software</h2>
-            <h2 className="text-5xl sm:text-7xl xl:text-9xl hover:text-shadow-sm hover:text-shadow-amber-300 hover:animate-pulse transition-shadow duration-75">Engineer</h2>
-            <p className="text-base sm:text-xl text-gray-600 hover:text-white max-w-2xl mx-auto py-6 text-wrap">
-              I'm a Software Engineer based in Sri Lanka, I'll Help you through my knowledge.
+        <hr className="w-32 sm:w-40 mx-auto border-4 mt-3 rounded-full border-gradient-to-r from-purple-500 to-pink-500" />
+      </div>
+
+      {/* Content Container */}
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-12 lg:gap-20">
+          
+          {/* Left Side - Text */}
+          <div className="text-center lg:text-right space-y-4">
+            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              Software
+            </h2>
+            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-blue-500">
+              Engineer
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 max-w-lg mx-auto lg:mx-0">
+              I'm a Software Engineer based in Sri Lanka. I'll help you through my knowledge and experience.
             </p>
+            <div className="flex gap-4 justify-center">
+              <Link to={"/projects"}><button className="px-6 py-2 border border-blue-600 rounded-lg hover:bg-blue-600/20 transition-all hover:scale-105">
+                Projects
+              </button></Link>
+            </div>
           </div>
-          <img
-            className="mx-auto w-64 h-64 sm:w-80 sm:h-80 xl:w-auto xl:h-auto xl:max-w-lg xl:max-h-lg mt-8 rounded-full p-6 xl:p-10 border-2 border-slate-400 hover:ring-2 transition-all duration-500 object-cover"
-            src={nasmiPic}
-            alt="Nasmi's Picture"
-          />
+
+          {/* Right Side - Image */}
+          <div className="relative">
+            <div className="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+            <img
+              className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-blue-500 shadow-2xl hover:scale-105 transition-all duration-500"
+              src={nasmiPic}
+              alt="Nasmi's Picture"
+            />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
