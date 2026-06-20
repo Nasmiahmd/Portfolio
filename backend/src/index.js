@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import projectRoutes from "./routes/projectRoutes.js"
 import cors from "cors";
 import dns from "dns/promises";
+import path from "path";
 
 dns.setServers(["1.1.1.1"]);
 
