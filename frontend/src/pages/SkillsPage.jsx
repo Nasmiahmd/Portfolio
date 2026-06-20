@@ -2,12 +2,12 @@ import React, { useState, useCallback, useMemo } from "react";
 
 const SkillsPage = () => {
   const skills = useMemo(() => [
-    { id: 1, name: "HTML", level: 1, experience: "Beginner" },
-    { id: 2, name: "CSS", level: 5, experience: "Pro" },
+    { id: 1, name: "HTML", level: 5, experience: "Pro" },
+    { id: 2, name: "CSS", level: 4, experience: "Expert" },
     { id: 3, name: "JavaScript", level: 3, experience: "Advanced" },
-    { id: 4, name: "PHP", level: 4, experience: "Expert" },
-    { id: 5, name: "React", level: 4, experience: "Expert" },
-    { id: 6, name: "Python", level: 2, experience: "Intermediate" },
+    { id: 4, name: "PHP", level: 2, experience: "Intermediate" },
+    { id: 5, name: "React", level: 3, experience: "Advanced" },
+    { id: 6, name: "JAVA", level: 3, experience: "Advanced" },
   ], []);
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -98,27 +98,24 @@ const SkillsPage = () => {
               focus:outline-none
               focus:ring-2
               focus:ring-white/50
-              flex-shrink-0
+              shrink-0
             "
             aria-label="Previous skill"
           >
             ◀
           </button>
 
-          {/* Skill Card */}
+          
           <div className="flex-1 bg-white rounded-2xl shadow-2xl overflow-hidden">
             <div className="p-4 sm:p-6 md:p-8">
-              {/* Skill Name */}
               <div className="
                 text-4xl sm:text-5xl md:text-6xl 
                 font-bold text-center mb-6 sm:mb-8
-                bg-gradient-to-r from-purple-600 to-indigo-600 
+                bg-linear-to-r from-purple-600 to-indigo-600 
                 bg-clip-text text-transparent
               ">
                 {currentSkill.name}
               </div>
-
-              {/* Level Slider */}
               <div className="mb-6">
                 <div className="flex gap-1 sm:gap-2 mb-4">
                   {[1, 2, 3, 4, 5].map((level) => (
@@ -135,7 +132,7 @@ const SkillsPage = () => {
                   ))}
                 </div>
 
-                {/* Level Badge */}
+
                 <div className="flex justify-center">
                   <div
                     className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-white font-semibold text-sm sm:text-base"
@@ -146,19 +143,19 @@ const SkillsPage = () => {
                 </div>
               </div>
 
-              {/* Experience Label */}
+   
               <div className="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-4">
                 {currentSkill.experience}
               </div>
 
-              {/* Description */}
+
               <div className="text-center text-gray-600 text-xs sm:text-sm pt-4 border-t border-gray-200">
                 {getLevelDescription(currentSkill.level)}
               </div>
             </div>
           </div>
 
-          {/* Next Button */}
+
           <button
             onClick={nextSkill}
             disabled={isAnimating}
@@ -178,7 +175,7 @@ const SkillsPage = () => {
               focus:outline-none
               focus:ring-2
               focus:ring-white/50
-              flex-shrink-0
+              shrink-0
             "
             aria-label="Next skill"
           >
@@ -186,7 +183,6 @@ const SkillsPage = () => {
           </button>
         </div>
 
-        {/* Dots Indicator */}
         <div className="flex justify-center gap-2 sm:gap-3 mt-6 sm:mt-8">
           {skills.map((skill, index) => (
             <button
@@ -206,7 +202,7 @@ const SkillsPage = () => {
           ))}
         </div>
 
-        {/* Progress Indicator */}
+
         <div className="text-center text-white/70 text-xs sm:text-sm mt-4 sm:mt-6">
           {currentIndex + 1} / {skills.length}
         </div>
