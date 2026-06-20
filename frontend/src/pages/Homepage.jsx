@@ -33,7 +33,7 @@ const Homepage = () => {
           
           {/* Left Side - Text */}
           <div className="text-center lg:text-right space-y-4">
-            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Software
             </h2>
             <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-blue-500">
